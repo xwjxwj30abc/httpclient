@@ -22,9 +22,9 @@ public class ClientExecuteProxy {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		try {
 
-			HttpHost target = new HttpHost("www.baidu.com", 8080);
+			HttpHost target = new HttpHost("localhost", 443, "https");
 			//设置代理服务器
-			HttpHost proxy = new HttpHost("localhost", 8080);
+			HttpHost proxy = new HttpHost("127.0.0.1", 80, "http");
 
 			RequestConfig config = RequestConfig.custom().setProxy(proxy).build();
 			HttpGet httpGet = new HttpGet("/");

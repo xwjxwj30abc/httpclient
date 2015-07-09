@@ -28,6 +28,7 @@ public class ClientConnectionRelease {
 
 					//终止http请求的方法
 					//httpGet.abort();
+
 				}
 			} finally {
 				//释放response连接

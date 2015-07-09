@@ -10,6 +10,8 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
 public class ClientCustomContext {
@@ -17,11 +19,14 @@ public class ClientCustomContext {
 	public final static void main(String[] args) throws Exception {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		try {
-			// Create a local instance of cookie store
+
 			CookieStore cookieStore = new BasicCookieStore();
+			HttpContext context = new BasicHttpContext();
 
 			// Create local HTTP context
-			HttpClientContext localContext = HttpClientContext.create();
+			//HttpClientContext localContext = HttpClientContext.create();
+			HttpClientContext localContext = HttpClientContext.adapt(context);
+
 			// Bind custom cookie store to the local context
 			localContext.setCookieStore(cookieStore);
 			HttpGet httpget = new HttpGet("http://localhost/");
