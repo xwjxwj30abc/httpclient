@@ -12,7 +12,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class HtmlEntity {
 
 	public void setFormEntity() throws UnsupportedEncodingException {
-		List<NameValuePair> formparams = new ArrayList<>();
+		List<NameValuePair> formparams = new ArrayList<NameValuePair>();
 		formparams.add(new BasicNameValuePair("param1", "value1"));
 		formparams.add(new BasicNameValuePair("param2", "value2"));
 		UrlEncodedFormEntity entity = new UrlEncodedFormEntity(formparams);

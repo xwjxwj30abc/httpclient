@@ -24,7 +24,6 @@ public class RequestRetry {
 	public HttpRequestRetryHandler customRequestretryHandler() {
 		HttpRequestRetryHandler myhandler = new HttpRequestRetryHandler() {
 
-			@Override
 			public boolean retryRequest(IOException exception, int executionCount, HttpContext context) {
 
 				if (executionCount >= 5) {

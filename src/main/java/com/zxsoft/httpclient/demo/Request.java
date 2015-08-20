@@ -29,13 +29,11 @@ public class Request {
 	public static void main(String[] args) throws Exception {
 
 		CloseableHttpClient httpClient = HttpClients.createDefault();
-
 		try {
 			HttpGet httpGet = new HttpGet("http://www.baidu.com");
 			ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
 
 				//handleResponse实现对请求响应HttpResponse的处理
-				@Override
 				public String handleResponse(final HttpResponse response) throws ClientProtocolException, IOException {
 					int status = response.getStatusLine().getStatusCode();
 					if (status >= 200 && status < 300) {
@@ -59,7 +57,6 @@ public class Request {
 		HttpGet httpget = new HttpGet("http://localhost/json");
 
 		ResponseHandler<MyJsonObject> rh = new ResponseHandler<MyJsonObject>() {
-			@Override
 			public MyJsonObject handleResponse(final HttpResponse response) throws IOException {
 				StatusLine statusLine = response.getStatusLine();
 				HttpEntity entity = response.getEntity();
