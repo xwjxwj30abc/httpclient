@@ -18,6 +18,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestExecutor;
 
 public class ConnectionPersistence {
+
 	public static void main(String[] args) throws InterruptedException, ExecutionException, IOException, HttpException {
 
 		BasicHttpClientConnectionManager basicConnManager = new BasicHttpClientConnectionManager();
@@ -32,7 +33,6 @@ public class ConnectionPersistence {
 		context.setAttribute("target host", new HttpHost("www.baidu.com", 80));
 		HttpGet get = new HttpGet("http://www.baidu.com/");
 		exeRequest.execute(get, conn, context);
-		//most important
 		basicConnManager.releaseConnection(conn, null, 1, TimeUnit.SECONDS);
 
 		CloseableHttpClient client = HttpClients.custom().setConnectionManager(basicConnManager).build();

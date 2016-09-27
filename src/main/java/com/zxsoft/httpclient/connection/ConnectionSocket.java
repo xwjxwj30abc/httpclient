@@ -16,7 +16,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
 public class ConnectionSocket {
+
 	public static void main(String[] args) throws IOException {
+
 		HttpClientContext clientContext = HttpClientContext.create();
 		PlainConnectionSocketFactory sf = PlainConnectionSocketFactory.getSocketFactory();
 
